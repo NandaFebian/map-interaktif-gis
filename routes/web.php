@@ -31,4 +31,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::post('/features', [App\Http\Controllers\MapController::class, 'storeFeature']);
+Route::get('/allFeatures', [App\Http\Controllers\MapController::class, 'loadFeatures']);
+Route::delete('/delFeatures/{id}', [App\Http\Controllers\MapController::class, 'deleteFeature']);
+Route::put('/updateFeature/{id}', [App\Http\Controllers\MapController::class, 'updateFeature']);
+
 require __DIR__ . '/auth.php';
